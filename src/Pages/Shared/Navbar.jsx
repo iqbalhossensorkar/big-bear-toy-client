@@ -4,7 +4,7 @@ import logo from '../../assets/logo.svg'
 const Navbar = () => {
     // Home, All Toys, My Toys, Add A Toy, Blogs, and User profile picture.
     return (
-        <div className='w-10/12 mx-auto sticky -top-5 bg-white'>
+        <div className='w-10/12 mx-auto sticky -top-10 bg-white'>
             <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
