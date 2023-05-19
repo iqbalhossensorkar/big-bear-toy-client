@@ -1,8 +1,9 @@
+import { useContext } from "react";
 import Contacts from "../Componens/Contacts";
 import Gallery from "../Componens/Gallery";
 import HomeBanner from "../Componens/HomeBanner";
 import HowToBuy from "../Componens/HowToBuy";
-import ProductShowCase from "../Componens/ProductShowCase";
+import ShopByCategory from "../Componens/ShopByCategory/ShopByCategory";
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
             <div className="w-10/12 mx-auto">
                 <HomeBanner></HomeBanner>
             </div>
+            <ShopByCategory></ShopByCategory>
             <Gallery></Gallery>
             {/* <ProductShowCase></ProductShowCase> */}
             <div className="container mx-auto">
