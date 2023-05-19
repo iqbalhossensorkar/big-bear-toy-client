@@ -3,7 +3,7 @@ import Social from '../Componens/Social';
 
 const Footer = () => {
     return (
-        <div>
+        <div className='container mx-auto'>
             <footer className="footer p-10 bg-amber-100 text-base-content">
                 <div>
                     <img src={logo} alt="" />

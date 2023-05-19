@@ -1,8 +1,17 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.svg'
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const Navbar = () => {
     // Home, All Toys, My Toys, Add A Toy, Blogs, and User profile picture.
+
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogOut = () => {
+        logOut()
+            .then(result => { })
+            .then(error => { console.log(error) })
+    }
     return (
         <div className='w-10/12 mx-auto sticky -top-10 bg-white'>
             <div className="navbar">
@@ -31,11 +40,26 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="avatar">
-                        <div className="w-8 lg:w-14 rounded-full">
-                            <img src={logo} className='bg-black'/>
-                        </div>
-                    </div>
+
+                    {user ?
+                        <>
+                            <div className="tooltip" data-tip={user?.displayName}>
+                                <div className="avatar">
+                                    <div className="w-8 lg:w-14 rounded-full">
+                                        <img src={logo} className='bg-black' />
+                                    </div>
+                                </div>
+                            </div>
+                            <button className='btn btn-outline border-2 border-amber-300' onClick={handleLogOut}>logout</button>
+                        </> :
+                        <Link to='/login'>
+                            <button className="btn btn-outline border-2 border-amber-300">Login</button>
+                        </Link>
+                    }
+
+
+
+
                 </div>
             </div>
         </div>

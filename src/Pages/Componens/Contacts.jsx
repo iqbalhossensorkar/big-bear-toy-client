@@ -14,8 +14,8 @@ const Contacts = () => {
                                         <div className="camera" style={{ backgroundColor: '#FEF3C7' }}></div>
                                         <div className="display w-72 lg:w-full">
                                             <div className="artboard h-20 artboard-demo bg-amber-200 phone-1">
-                                                <div className='text-left mr-8 lg:mr-0'>
-                                                    <p className="text-gray-500 font-bold mb-5 ml-2">Newsletter</p>
+                                                <div className='text-center mr-8 lg:mr-0'>
+                                                    <p className="text-gray-600 text-2xl font-bold mb-5 ml-2">Subscribe Newsletter</p>
                                                     <div className="form-control mb-4">
                                                         <div className="relative">
                                                             <input type="text" placeholder="Cute baby toys" className="input bg-amber-50 focus:bg-white w-full pr-16" />

@@ -8,10 +8,10 @@ const Social = () => {
         <div>
             <p className='font-medium text-2xl ml-4'>Let Connect with us</p>
             <div className='flex items-center gap-3 p-6'>
-                <img src={facebook} alt="" className='h-10' />
-                <img src={googlePlus} alt="" className='h-10' />
-                <img src={instagram} alt="" className='h-10' />
-                <img src={twitter} alt="" className='h-10' />
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src={facebook} alt="" className='h-10' /></a>
+                <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer"><img src={googlePlus} alt="" className='h-10' /></a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="" className='h-10' /></a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><img src={twitter} alt="" className='h-10' /></a>
             </div>
         </div>
     );
