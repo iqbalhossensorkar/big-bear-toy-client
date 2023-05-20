@@ -1,16 +1,25 @@
 import React from 'react';
+import { Rating } from "@smastrom/react-rating";
+import '@smastrom/react-rating/style.css';
+
 
 const SingleCategory = ({ toy }) => {
+    const { Description, Name, Picture, Price, Ratings, ststus, _id } = toy;
+    // console.log(toy);
     return (
         <div>
-            <div className="card w-96 bg-white rounded-lg border-2 hover:border-amber-200 hover:border-dashed">
-                <div className="border-dashed-hover absolute inset-0"></div>
+            <div className="card w-full  bg-white rounded-lg border-2 hover:border-amber-200 hover:border-dashed">
                 <figure className="px-10 pt-10">
-                    <img src="" alt="Shoes" className="rounded-xl" />
+                    <img src={Picture} alt="" className="rounded-xl h-64" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <h2 className="card-title">{Name}</h2>
+                    <p>${Price}</p>
+                    <Rating
+                                    style={{ maxWidth: 100 }}
+                                    value={Ratings}
+                                    readOnly
+                                />
                     <div className="card-actions">
                         <button className="btn btn-outline">View Detail</button>
                     </div>
