@@ -3,13 +3,16 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 
 const ShopByCategory = () => {
+    const handleTabClick = () => {
+        console.log('Clicked');
+    }
     return (
         <div className='w-10/12 mx-auto text-center'>
             <h1 className='text-4xl mt-10'>Shop By Category</h1>
             <p className='text-lg font-light mt-2 mb-14'>Some of the most common top online shopping categories include electronics, furry, toys .</p>
-            <Tabs>
-                <TabList>
-                    <Tab>Teddy Bears</Tab>
+            <Tabs className='min-h-screen'>
+                <TabList className='bg-green-200 border-none'>
+                    <Tab onClick={handleTabClick}>Teddy Bears</Tab>
                     <Tab>Sock monkey</Tab>
                     <Tab>ZhuZhu Pets</Tab>
                 </TabList>
@@ -18,7 +21,7 @@ const ShopByCategory = () => {
                     <div>
                         <div className="card w-96 bg-base-100 shadow-xl">
                             <figure className="px-10 pt-10">
-                                <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
+                                <img src="" alt="Shoes" className="rounded-xl" />
                             </figure>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">Shoes!</h2>

@@ -1,0 +1,66 @@
+[
+    {
+      "Picture": "https://i.ibb.co/CbHQ18Z/teddy-1.png",
+      "Name": "Cuddly Teddy Bear",
+      "Price": 19.99,
+      "Rating": 4.5,
+      "Description": "A cuddly teddy bear with soft fur, perfect for snuggling."
+    },
+    {
+      "Picture": "https://i.ibb.co/f9w7V4n/teddy-2.png",
+      "Name": "Bowtie Teddy Bear",
+      "Price": 29.99,
+      "Rating": 3.8,
+      "Description": "An adorable teddy bear with a bowtie, ready for playtime."
+    },
+    {
+      "Picture": "https://i.ibb.co/fFKBpFs/teddy-3.png",
+      "Name": "Heart Nose Teddy Bear",
+      "Price": 24.99,
+      "Rating": 4.2,
+      "Description": "A fluffy teddy bear with a heart-shaped nose, the perfect gift for someone special."
+    },
+    {
+      "Picture": "https://i.ibb.co/WWh02X4/monkey-3.png",
+      "Name": "Colorful Sock Monkey",
+      "Price": 14.99,
+      "Rating": 4.0,
+      "Description": "A classic sock monkey toy made from colorful, knitted socks."
+    },
+    {
+      "Picture": "https://i.ibb.co/W26Q1Xx/monkey-1.png",
+      "Name": "Mischievous Sock Monkey",
+      "Price": 39.99,
+      "Rating": 4.7,
+      "Description": "A playful sock monkey with long arms and a mischievous smile."
+    },
+    {
+      "Picture": "https://i.ibb.co/LN7cyF6/monkey-2.png",
+      "Name": "Huggable Sock Monkey",
+      "Price": 49.99,
+      "Rating": 3.5,
+      "Description": "A huggable sock monkey with button eyes and a stitched mouth."
+    },
+    {
+      "Picture": "https://i.ibb.co/MBfdXLs/robotic-hamster.jpg",
+      "Name": "Robotic Hamster",
+      "Price": 9.99,
+      "Rating": 4.8,
+      "Description": "A robotic hamster toy that scurries and makes cute noises."
+    },
+    {
+      "Picture": "https://i.ibb.co/9YvHtH1/adventure-zhuzhu.jpg",
+      "Name": "Adventure-loving ZhuZhu Pet",
+      "Price": 34.99,
+      "Rating": 4.1,
+      "Description": "An interactive ZhuZhu pet with a colorful fur coat and a love for adventure."
+    },
+    {
+      "Picture": "https://i.ibb.co/VMHMyKD/squezy-zhuzhu.jpg",
+      "Name": "Squeaky ZhuZhu Pet",
+      "Price": 21.99,
+      "Rating": 4.6,
+      "Description": "A cuddly ZhuZhu pet that squeaks and chirps, bringing joy to playtime."
+    }
+  ]
+  

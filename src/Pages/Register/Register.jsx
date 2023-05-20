@@ -91,7 +91,7 @@ const Register = () => {
                                     <input type="text" name='photoURL' placeholder="https://" className="input" required />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input className='btn btn-outline text-amber-400 border-none hover:bg-amber-400' type="submit" value="Login" />
+                                    <input className='btn btn-outline text-amber-400 border-none hover:bg-amber-400' type="submit" value="register" />
                                 </div>
                             </form>
                         </div>

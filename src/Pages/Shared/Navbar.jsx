@@ -46,7 +46,7 @@ const Navbar = () => {
                             <div className="tooltip" data-tip={user?.displayName}>
                                 <div className="avatar">
                                     <div className="w-8 lg:w-14 rounded-full">
-                                        <img src={logo} className='bg-black' />
+                                        <img src={user?.photoURL} className=''  referrerPolicy="no-referrer"/>
                                     </div>
                                 </div>
                             </div>
