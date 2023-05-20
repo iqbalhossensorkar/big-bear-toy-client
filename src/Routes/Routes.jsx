@@ -9,6 +9,7 @@ import AddToy from "../Pages/AddToy/AddToy";
 import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/MyToys/MyToys";
 import PrivateRoute from "./PrivateRoute";
+import { Helmet } from "react-helmet";
 
 
 const router = createBrowserRouter([
@@ -19,36 +20,83 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>,
+        element: (
+          <>
+            <Helmet>
+              <title>Big Bear</title>
+            </Helmet>
+            <Home />
+          </>
+        ),
       },
       {
         path: '/addToy',
-        element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <Helmet>
+              <title>Big Bear | Add Toy</title>
+            </Helmet>
+            <AddToy />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/allToys',
-        element: <AllToys></AllToys>
+        element: (
+          <>
+            <Helmet>
+              <title>Big Bear | All Toys</title>
+            </Helmet>
+            <AllToys />
+          </>
+        ),
       },
       {
         path: '/myToys',
-        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <Helmet>
+              <title>Big Bear | My Toys</title>
+            </Helmet>
+            <MyToys />
+          </PrivateRoute>
+        ),
       },
       {
         path: '/blog',
-        element: <Blog></Blog>
+        element: (
+          <>
+            <Helmet>
+              <title>Big Bear | Blog</title>
+            </Helmet>
+            <Blog />
+          </>
+        ),
+
       },
       {
         path: '/login',
-        element: <Login></Login>
+        element: (
+          <>
+            <Helmet>
+              <title>Big Bear | Login</title>
+            </Helmet>
+            <Login />
+          </>
+        ),
       },
       {
         path: '/register',
-        element: <Register></Register>
+        element: (
+          <>
+            <Helmet>
+              <title>Big Bear | Register</title>
+            </Helmet>
+            <Register />
+          </>
+        ),
+
       }
-      // {
-      //     path: '/error',
-      //     element: <ErrorPage></ErrorPage>
-      // }
     ]
   },
 ]);

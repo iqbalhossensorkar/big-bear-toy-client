@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import SingleCategory from './SingleCategory';
 
 const ShopByCategory = () => {
+    const [toys, setToys] = useState([])
     const handleTabClick = () => {
         console.log('Clicked');
     }
+
+    useEffect(() => {
+        fetch('http://localhost:5000/categoryWise')
+            .then(res => res.json())
+            .then(data => {
+                setToys(data);
+            })
+    }, [])
     return (
         <div className='w-10/12 mx-auto text-center'>
             <h1 className='text-4xl mt-10'>Shop By Category</h1>
@@ -18,19 +28,10 @@ const ShopByCategory = () => {
                 </TabList>
 
                 <TabPanel>
-                    <div>
-                        <div className="card w-96 bg-base-100 shadow-xl">
-                            <figure className="px-10 pt-10">
-                                <img src="" alt="Shoes" className="rounded-xl" />
-                            </figure>
-                            <div className="card-body items-center text-center">
-                                <h2 className="card-title">Shoes!</h2>
-                                <p>If a dog chews shoes whose shoes does he choose?</p>
-                                <div className="card-actions">
-                                    <button className="btn btn-primary">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div className='grid grid-cols-1 md:grid-cols-3 gap-4 my-10'>
+                        {
+                            toys.map(toy => <SingleCategory key={toy._id} toy={toy}></SingleCategory>)
+                        }
                     </div>
                 </TabPanel>
                 <TabPanel>
