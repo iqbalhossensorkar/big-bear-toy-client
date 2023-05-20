@@ -1,6 +1,7 @@
 import React from 'react';
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css';
+import { Link } from 'react-router-dom';
 
 
 const SingleCategory = ({ toy }) => {
@@ -21,7 +22,7 @@ const SingleCategory = ({ toy }) => {
                                     readOnly
                                 />
                     <div className="card-actions">
-                        <button className="btn btn-outline">View Detail</button>
+                        <Link to={`/toyDetails/${_id}`}><button className="btn btn-outline">View Detail</button></Link>
                     </div>
                 </div>
             </div>

@@ -10,6 +10,7 @@ import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/MyToys/MyToys";
 import PrivateRoute from "./PrivateRoute";
 import { Helmet } from "react-helmet";
+import ToyDetails from "../Pages/Componens/ShopByCategory/ToyDetails";
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,18 @@ const router = createBrowserRouter([
             <AllToys />
           </>
         ),
+      },
+      {
+        path: '/toyDetails/:id',
+        element: (
+          <>
+            <Helmet>
+              <title>Big Bear | Toy Details</title>
+            </Helmet>
+            <ToyDetails />
+          </>
+        ),
+        loader: ({params}) => fetch(`http://localhost:5000/toyDetail/${params.id}`) 
       },
       {
         path: '/myToys',
