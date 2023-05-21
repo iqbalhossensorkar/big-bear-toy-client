@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             <AllToys />
           </>
         ),
-        loader: () => fetch('http://localhost:5000/allToys')
+        loader: () => fetch('https://big-bear-toys-server.vercel.app/allToys')
       },
       {
         path: '/toyDetails/:id',
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
             </PrivateRoute>
           </>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toyDetail/${params.id}`)
+        loader: ({ params }) => fetch(`https://big-bear-toys-server.vercel.app/toyDetail/${params.id}`)
       },
       {
         path: '/myToys',

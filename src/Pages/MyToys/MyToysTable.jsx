@@ -12,7 +12,7 @@ const MyToysTable = ({ singleToy, index, handleDelete }) => {
 
     const handleToyUpdate = (data, id) => {
         // console.log(data);
-        fetch(`http://localhost:5000/updateJob/${data._id}`, {
+        fetch(`https://big-bear-toys-server.vercel.app/updateToy/${data._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

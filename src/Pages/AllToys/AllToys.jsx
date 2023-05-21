@@ -9,16 +9,16 @@ const AllToys = () => {
 
     const handleSearch = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/toySearchByTitle/${search}`);
-          const data = await response.json();
-          setToys(data);
-        
-          const filteredData = toys.filter((toy) => toy.toyName.toLowerCase().includes(search.toLowerCase()));
-          setToys(filteredData);
+            const response = await fetch(`https://big-bear-toys-server.vercel.app/toySearchByTitle/${search}`);
+            const data = await response.json();
+            setToys(data);
+
+            const filteredData = toys.filter((toy) => toy.toyName.toLowerCase().includes(search.toLowerCase()));
+            setToys(filteredData);
         } catch (error) {
-          console.error('Error searching by title:', error);
+            console.error('Error searching by title:', error);
         }
-      };
+    };
 
     return (
         <div className='w-10/12 mx-auto my-10'>
@@ -35,10 +35,17 @@ const AllToys = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>No.</th>
+                            <th>NO.</th>
                             <th>Toy Name</th>
                             <th>Seller Name</th>
-                            <th>Price</th>
+                            <th>Price
+                                <div>
+                                    <select className='w- p-2 rounded-md'>
+                                        <option value="High">High</option>
+                                        <option value="Low">Low</option>
+                                    </select>
+                                </div>
+                            </th>
                             <th>Quantity</th>
                             <th></th>
                         </tr>

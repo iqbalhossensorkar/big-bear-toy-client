@@ -8,7 +8,7 @@ const AddToy = () => {
     // console.log(user);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/addToy', {
+        fetch('https://big-bear-toys-server.vercel.app/addToy', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

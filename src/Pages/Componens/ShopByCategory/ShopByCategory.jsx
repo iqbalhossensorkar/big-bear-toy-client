@@ -13,7 +13,7 @@ const ShopByCategory = () => {
     const from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
-        fetch(`http://localhost:5000/categoryWise/${activeTab}`)
+        fetch(`https://big-bear-toys-server.vercel.app/categoryWise/${activeTab}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);
