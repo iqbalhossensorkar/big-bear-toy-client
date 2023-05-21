@@ -62,7 +62,7 @@ const MyToys = () => {
                     </tr>
                 </thead>
                 {
-                    toys.map((singleToy, index) => <MyToysTable key={singleToy._id} singleToy={singleToy} index={index} handleDelete={handleDelete}></MyToysTable>)
+                    toys.map((singleToy, index) => <MyToysTable key={singleToy._id} singleToy={singleToy} index={index} handleDelete={handleDelete} toys={toys} setToys={setToys}></MyToysTable>)
                 }
             </table>
         </div>

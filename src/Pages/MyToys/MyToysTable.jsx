@@ -1,15 +1,36 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProviders';
+import Swal from 'sweetalert2';
 
 const MyToysTable = ({ singleToy, index, handleDelete }) => {
+    const {control, setControl} = useState(false)
     const { user } = useContext(AuthContext)
     // console.log(singleToy);
-    const { sellerName, subCategory, toyName, price, photoURL, quantity, _id } = singleToy;
+    const { sellerName, subCategory, toyName, price, photoURL, quantity, _id, sellerEmail, message, rating } = singleToy;
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-    const handleToyUpdate = (data) => {
-        console.log(data);
+    const handleToyUpdate = (data, id) => {
+        // console.log(data);
+        fetch(`http://localhost:5000/updateJob/${data._id}`, {
+            method: "PUT",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => {
+            console.log(result);
+            if (result.modifiedCount>0) {
+                Swal.fire(
+                    'Good job!',
+                    'You Updated Successfully!',
+                    'success'
+                  )
+                  setControl(!control)
+            }
+        })
     } 
     return (
         <>
@@ -47,41 +68,37 @@ const MyToysTable = ({ singleToy, index, handleDelete }) => {
                                 <form onSubmit={handleSubmit(handleToyUpdate)}>
                                 <input className='input w-full hidden' defaultValue={_id} {...register("_id")} />
                                     <label className=''>
-                                        <p className='text-base'>Toy Name <span className='text-error'>*</span></p>
-                                        <input className='input w-full' placeholder='mickey mouse' {...register("toyName", { required: true })} />
-                                        {errors.toyName && <p className='text-sm text-error'>This field is required</p>}
+                                        <p className='text-base'>Toy Name</p>
+                                        <input className='input w-full' defaultValue={toyName} {...register("toyName")} />
                                     </label>
                                     <label>
-                                        <p className='text-base mt-5'>Photo URL <span className='text-error'>*</span></p>
-                                        <input className='input w-full' placeholder='https://'{...register("photoURL", { required: true })} />
-                                        {errors.photoURL && <p className='text-sm text-error'>This field is required</p>}
+                                        <p className='text-base mt-5'>Photo URL</p>
+                                        <input className='input w-full' defaultValue={photoURL} {...register("photoURL")} />
                                     </label>
                                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 my-5 items-center w-full'>
                                         <label>
                                             <p className='text-base'>Seller Name</p>
-                                            <input className='input w-full' defaultValue={user?.displayName}{...register("sellerName")} />
+                                            <input className='input w-full' defaultValue={sellerName}{...register("sellerName")} />
                                         </label>
                                         <label>
                                             <p className='text-base'>Seller Name</p>
-                                            <input className='input w-full' defaultValue={user?.email}{...register("sellerEmail")} />
+                                            <input className='input w-full' defaultValue={sellerEmail}{...register("sellerEmail")} />
                                         </label>
                                     </div>
                                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 my-5 items-center w-full'>
                                         <label>
-                                            <p className='text-base'>Price <span className='text-error'>*</span></p>
-                                            <input className='input w-full' type='number' placeholder='$'{...register("price", { required: true })} />
-                                            {errors.price && <p className='text-sm text-error'>This field is required</p>}
+                                            <p className='text-base'>Price</p>
+                                            <input className='input w-full' type='number' defaultValue={price}{...register("price")} />
                                         </label>
                                         <label>
-                                            <p className='text-base'>Quantity <span className='text-error'>*</span></p>
-                                            <input className='input w-full' type='number' placeholder=''{...register("quantity", { required: true })} />
-                                            {errors.quantity && <p className='text-sm text-error'>This field is required</p>}
+                                            <p className='text-base'>Quantity</p>
+                                            <input className='input w-full' type='number' defaultValue={quantity}{...register("quantity")} />
                                         </label>
                                     </div>
                                     <div className='grid grid-cols-1 md:grid-cols-2 gap-4 my-5'>
                                         <div>
                                             <p>Sub Category</p>
-                                            <select className='w-full px-5 py-2 rounded-md' {...register("subCategory")}>
+                                            <select className='w-full px-5 py-2 rounded-md' defaultValue={subCategory} {...register("subCategory")}>
                                                 <option value="Animal figurines">Animal figurines</option>
                                                 <option value="Safari Stories">Safari Stories</option>
                                                 <option value="Stuffed Toys">Stuffed Toys</option>
@@ -89,7 +106,7 @@ const MyToysTable = ({ singleToy, index, handleDelete }) => {
                                         </div>
                                         <div>
                                             <p>Rating</p>
-                                            <select className='w-full px-5 py-2 rounded-md' {...register("rating")}>
+                                            <select className='w-full px-5 py-2 rounded-md' defaultValue={rating} {...register("rating")}>
                                                 <option value="3">3</option>
                                                 <option value="3.5">3.5</option>
                                                 <option value="4">4</option>
@@ -101,14 +118,14 @@ const MyToysTable = ({ singleToy, index, handleDelete }) => {
                                     </div>
                                     <label>
                                         <p>Detail Description:</p>
-                                        <textarea className='textarea w-full' {...register('message')} />
+                                        <textarea className='textarea w-full' defaultValue={message} {...register('message')} />
                                     </label>
                                     <div className='text-center'>
                                         <input className='btn mt-5' type="submit" value='Update'/>
                                     </div>
                                 </form>
                                 <div className="modal-action">
-                                    <label htmlFor="my-modal-6" className="btn">Yay!</label>
+                                    <label htmlFor="my-modal-6" className="btn">close</label>
                                 </div>
                             </div>
                         </div>
