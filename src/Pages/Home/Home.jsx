@@ -4,6 +4,7 @@ import Gallery from "../Componens/Gallery";
 import HomeBanner from "../Componens/HomeBanner";
 import HowToBuy from "../Componens/HowToBuy";
 import ShopByCategory from "../Componens/ShopByCategory/ShopByCategory";
+import HappyClients from "../Componens/HappyClients";
 
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
             </div>
             <ShopByCategory></ShopByCategory>
             <Gallery></Gallery>
-            {/* <ProductShowCase></ProductShowCase> */}
+            <HappyClients></HappyClients>
             <div className="container mx-auto">
                 <HowToBuy></HowToBuy>
             </div>
