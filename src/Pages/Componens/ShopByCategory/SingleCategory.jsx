@@ -2,11 +2,13 @@ import React from 'react';
 import { Rating } from "@smastrom/react-rating";
 import '@smastrom/react-rating/style.css';
 import { Link } from 'react-router-dom';
-
+import { AuthContext } from '../../../Providers/AuthProviders';
+import { useContext } from 'react';
 
 const SingleCategory = ({ toy }) => {
+    const { user } = useContext(AuthContext)
     const { Description, Name, Picture, Price, Ratings, ststus, _id } = toy;
-    // console.log(toy);
+  
     return (
         <div>
             <div className="card w-full  bg-white rounded-lg border-2 hover:border-amber-200 hover:border-dashed">
@@ -17,12 +19,12 @@ const SingleCategory = ({ toy }) => {
                     <h2 className="card-title">{Name}</h2>
                     <p>${Price}</p>
                     <Rating
-                                    style={{ maxWidth: 100 }}
-                                    value={Ratings}
-                                    readOnly
-                                />
+                        style={{ maxWidth: 100 }}
+                        value={Ratings}
+                        readOnly
+                    />
                     <div className="card-actions">
-                        <Link to={`/toyDetails/${_id}`}><button className="btn btn-outline">View Detail</button></Link>
+                        <Link to={ `/toyDetails/${_id}`}><button className="btn btn-outline">View Detail</button></Link>
                     </div>
                 </div>
             </div>

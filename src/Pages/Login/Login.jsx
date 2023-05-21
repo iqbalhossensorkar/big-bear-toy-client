@@ -1,16 +1,16 @@
 import { FaArrowRight } from 'react-icons/fa';
 import sideBanner from '../../assets/login-image/Login.jpg'
 import google from '../../assets/google.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 const Login = () => {
     const { googleSignIn, logIn } = useContext(AuthContext)
     const [error, setError] = useState("");
-    // const [show, setShow] = useState(false);
-    // const navigate = useNavigate();
-    // const location = useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const handleLogIn = event => {
         event.preventDefault();
         const form = event.target;
@@ -23,6 +23,7 @@ const Login = () => {
                 form.reset();
                 const userLogged = result.user;
                 console.log(userLogged);
+                navigate(from, {replace: true})
                 // navigate(from, { replace: true })
             })
             .catch(error => {
@@ -35,6 +36,7 @@ const Login = () => {
             .then(result => {
                 const googleLoggedIn = result.user;
                 console.log(googleLoggedIn);
+                navigate(from, {replace: true})
                 // navigate(from, { replace: true })
             })
             .catch(error => {

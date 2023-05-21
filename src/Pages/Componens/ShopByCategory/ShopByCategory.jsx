@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import SingleCategory from './SingleCategory';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const ShopByCategory = () => {
     const [toys, setToys] = useState([])
     const [activeTab, setActiveTab] = useState("teddy bear");
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
         fetch(`http://localhost:5000/categoryWise/${activeTab}`)
             .then(res => res.json())
             .then(data => {
                 setToys(data);
+                navigate(from, {replace: true})
             })
     }, [activeTab])
 

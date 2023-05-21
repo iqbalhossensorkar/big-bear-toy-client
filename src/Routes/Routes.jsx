@@ -51,18 +51,21 @@ const router = createBrowserRouter([
             <AllToys />
           </>
         ),
+        loader: () => fetch('http://localhost:5000/allToys')
       },
       {
         path: '/toyDetails/:id',
         element: (
           <>
-            <Helmet>
-              <title>Big Bear | Toy Details</title>
-            </Helmet>
-            <ToyDetails />
+            <PrivateRoute>
+              <Helmet>
+                <title>Big Bear | Toy Details</title>
+              </Helmet>
+              <ToyDetails />
+            </PrivateRoute>
           </>
         ),
-        loader: ({params}) => fetch(`http://localhost:5000/toyDetail/${params.id}`) 
+        loader: ({ params }) => fetch(`http://localhost:5000/toyDetail/${params.id}`)
       },
       {
         path: '/myToys',

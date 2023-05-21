@@ -1,6 +1,6 @@
 import { FaArrowRight } from 'react-icons/fa';
 import sideBanner from '../../assets/login-image/Login.jpg'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { updateProfile } from 'firebase/auth';
@@ -11,6 +11,10 @@ const Register = () => {
     const [userPhoto, setUserPhoto] = useState('');
     const [userName, setUserName] = useState('')
     const [error, setError] = useState('')
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
     const handleRegister = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -25,6 +29,7 @@ const Register = () => {
                 const signeduser = result.user;
                 console.log(signeduser);
                 handleUpdate(signeduser, name, photoURL)
+                navigate(from, {replace: true})
                 if (createUser) {
                     Swal.fire(
                         'Good job!',
