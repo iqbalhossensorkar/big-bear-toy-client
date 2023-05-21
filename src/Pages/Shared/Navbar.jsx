@@ -13,7 +13,7 @@ const Navbar = () => {
             .then(error => { console.log(error) })
     }
     return (
-        <div className='w-10/12 mx-auto sticky -top-10 bg-white'>
+        <div className='w-10/12 mx-auto bg-white'>
             <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">

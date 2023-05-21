@@ -33,7 +33,7 @@ const Register = () => {
                 if (createUser) {
                     Swal.fire(
                         'Good job!',
-                        'You clicked the button!',
+                        'User Created Successfully!',
                         'success'
                     )
                 }

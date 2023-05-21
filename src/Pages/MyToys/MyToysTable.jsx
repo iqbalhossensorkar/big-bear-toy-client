@@ -1,9 +1,8 @@
 import React from 'react';
 
-const AllToysTable = ({ allToy, index }) => {
-    // console.log(allToy);
-    const { sellerName, subCategory, toyName, price, photoURL, quantity } = allToy;
-    // console.log(allToy);
+const MyToysTable = ({singleToy, index, handleDelete}) => {
+    // console.log(singleToy);
+    const { sellerName, subCategory, toyName, price, photoURL, quantity, _id } = singleToy;
     return (
         <>
             <tbody>
@@ -32,7 +31,10 @@ const AllToysTable = ({ allToy, index }) => {
                     <td>${price}</td>
                     <td>{quantity}</td>
                     <th>
-                        <button className="btn btn-ghost btn-xs">details</button>
+                        <button className="btn btn-ghost btn-xs">update</button>
+                    </th>
+                    <th>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">delete</button>
                     </th>
                 </tr>
             </tbody>
@@ -40,4 +42,4 @@ const AllToysTable = ({ allToy, index }) => {
     );
 };
 
-export default AllToysTable;
+export default MyToysTable;

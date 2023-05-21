@@ -6,7 +6,7 @@ import load from '../assets/red-colour-loading-animation.json'
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext)
-    console.log(user, loading);
+    // console.log(user, loading);
     if (loading) {
         return <div className=' flex h-screen justify-center items-center'>
             <Lottie className='w-36' animationData={load} loop={true}></Lottie>
